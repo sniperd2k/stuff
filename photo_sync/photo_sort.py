@@ -5,11 +5,12 @@ import shutil
 #some examples of how you can sort a mess of files into folders based up on the names of the files
 
 def main():
-    source_path = "C:\\Users\\dunderwood\\Documents\\temp_pics\\pictures_python\\"
-    target_path = "C:\\Users\\dunderwood\\Documents\\temp_pics\\pictures_python\\fun\\"
-    file_list = get_file_list(source_path)
-    file_dict = get_file_dict(file_list)
-    move_files(source_path, target_path, file_dict)
+    target_path = "X:\\pictures\\"
+    source_path_list = ["X:\\photosync\\"]
+    for source_path in source_path_list:
+        file_list = get_file_list(source_path)
+        file_dict = get_file_dict(file_list)
+        move_files(source_path, target_path, file_dict)
 
 def move_files(source_path, target_path, file_dict):
     for target_folder, file_list in file_dict.items():
