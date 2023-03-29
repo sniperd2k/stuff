@@ -17,8 +17,11 @@ def move_files(source_path, target_path, file_dict):
         if not os.path.exists("".join([target_path, target_folder])):
             os.makedirs("".join([target_path, target_folder]))
         for the_file in file_list:
-            print("".join(["moving:",source_path, the_file, " to:", target_path, target_folder, "\\", the_file]))
-            shutil.move("".join([source_path, the_file]), "".join([target_path, target_folder, "\\", the_file]))
+            if os.path.exists("".join([target_path, target_folder, "\\", the_file])):
+                print("".join(["file exists skipping:", source_path, the_file]))
+            else:                    
+                print("".join(["moving:",source_path, the_file, " to:", target_path, target_folder, "\\", the_file]))
+                shutil.move("".join([source_path, the_file]), "".join([target_path, target_folder, "\\", the_file]))
     
 def get_file_dict(file_list):
     file_dict = {}
